@@ -23,6 +23,8 @@ public class BookXmlWriter {
             for (var aTitle: title) {
                 var book = document.createElement("book");
                 var titleElement = document.createElement("title");
+                var titleContent = document.createTextNode(aTitle);
+                titleElement.appendChild(titleContent);
                 book.appendChild(titleElement);
                 catalog.appendChild(book);
             }
