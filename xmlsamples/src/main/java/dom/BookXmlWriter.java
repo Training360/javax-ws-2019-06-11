@@ -2,6 +2,7 @@ package dom;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -31,11 +32,23 @@ public class BookXmlWriter {
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
+
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            // transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+
             DOMSource source = new DOMSource(document);
             StreamResult result = new StreamResult(outputStream);
             transformer.transform(source, result);
         } catch (Exception e) {
             throw new RuntimeException("Error write xml", e);
         }
+    }
+
+    public static void main(String[] args) {
+        var titles = List.of("etwert", "r4tert", "erterte", "erterte");
+        var baos = new ByteArrayOutputStream();
+        new BookXmlWriter().writeXml(titles, baos);
+        var xml = new String(baos.toByteArray());
+        System.out.println(xml);
     }
 }
