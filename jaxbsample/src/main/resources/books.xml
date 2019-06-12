@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <books isbn10="XY12345">
+        <book-author>Joseph Heller</book-author>
+        <title>22-es csapdája</title>
+        <year>1970</year>
+    </books>
+    <books isbn10="twetwer">
+        <book-author>wetqwerqw</book-author>
+        <title>wetwertwertwe</title>
+        <year>2000</year>
+    </books>
+    <books isbn10="qwerqwer">
+        <book-author>qwerqwe</book-author>
+        <title>22-es csapdája</title>
+        <year>1970</year>
+    </books>
+    <books isbn10="XY12345">
+        <book-author>Joseph Heller</book-author>
+        <title>22-es csapdája</title>
+        <year>1970</year>
+    </books>
+</catalog>
