@@ -17,7 +17,7 @@ public class BookStaxWriter {
 
             writer.writeStartDocument();
             writer.writeStartElement("catalog");
-            for (String title: titles) {
+            for (var title: titles) {
                 writer.writeStartElement("book");
                 writer.writeStartElement("title");
                 writer.writeCharacters(title);
