@@ -1,5 +1,7 @@
 package xsd;
 
+import dom.BookXmlReader;
+
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.SchemaFactory;
@@ -20,5 +22,11 @@ public class BookValidator {
         catch (Exception e) {
             throw new RuntimeException("Error", e);
         }
+    }
+
+    public static void main(String[] args) {
+        new BookValidator().validateXml(
+                BookValidator.class.getResourceAsStream("/books.xml")
+        );
     }
 }
