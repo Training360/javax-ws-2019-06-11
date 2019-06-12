@@ -17,4 +17,8 @@ public class BookSaxReader {
             throw new RuntimeException("Error", e);
         }
     }
+
+    public static void main(String[] args) {
+        new BookSaxReader().readXml(BookSaxReader.class.getResourceAsStream("/books.xml"));
+    }
 }

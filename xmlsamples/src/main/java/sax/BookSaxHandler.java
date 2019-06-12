@@ -10,8 +10,14 @@ public class BookSaxHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        System.out.println("Elertem a kovetkezo taghez: " + localName);
-        tagInProcess = localName;
+        System.out.println("Elertem a kovetkezo taghez: " + qName);
+        tagInProcess = qName;
+    }
+
+    @Override
+    public void endElement(String uri, String localName, String qName) throws SAXException {
+        System.out.println("Elertem a lezaro taghez: " + qName);
+        tagInProcess = "";
     }
 
     @Override
