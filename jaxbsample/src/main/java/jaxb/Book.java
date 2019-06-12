@@ -1,5 +1,10 @@
 package jaxb;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Book {
 
     private String author;
@@ -20,6 +25,7 @@ public class Book {
         this.isbn10 = isbn10;
     }
 
+    @XmlElement(name = "book-author")
     public String getAuthor() {
         return author;
     }
@@ -44,6 +50,7 @@ public class Book {
         this.year = year;
     }
 
+    @XmlAttribute
     public String getIsbn10() {
         return isbn10;
     }
