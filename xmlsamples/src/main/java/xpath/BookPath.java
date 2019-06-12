@@ -22,4 +22,8 @@ public class BookPath {
             throw new RuntimeException("Error", e);
         }
     }
+
+    public static void main(String[] args) {
+        new BookPath().getTitle(3, BookPath.class.getResourceAsStream("/books.xml"));
+    }
 }
