@@ -5,6 +5,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,12 @@ public class BookResource {
     @GET
     public List<Book> listBooks() {
         return books;
+    }
+
+    @GET
+    @Path("{isbn10}")
+    public Book findBookByIsbn10(@PathParam("isbn10") String isbn10) {
+        return books.stream().filter(b -> b.getIsbn10().equals(isbn10)).findAny().get();
     }
 
     public static void main(String[] args) {
