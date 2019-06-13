@@ -3,9 +3,7 @@ package booksrest;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.util.ArrayList;
@@ -25,6 +23,27 @@ public class BookResource {
     @GET
     public List<Book> listBooks() {
         return books;
+    }
+
+    @POST
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    @POST
+    @Path("{isbn10}")
+    public void updateBook(@PathParam("isbn10") String isbn10, Book book) {
+        var found = books.stream().filter(b -> b.getIsbn10().equals(isbn10)).findAny().get();
+        found.setAuthor(book.getAuthor());
+        found.setTitle(book.getTitle());
+        found.setYear(book.getYear());
+    }
+
+    @DELETE
+    @Path("{isbn10}")
+    public void deleteBook(@PathParam("isbn10") String isbn10) {
+        var found = books.stream().filter(b -> b.getIsbn10().equals(isbn10)).findAny().get();
+        books.remove(found);
     }
 
     @GET
