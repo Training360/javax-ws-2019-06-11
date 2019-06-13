@@ -3,8 +3,10 @@ package bookservice;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
+@XmlType(propOrder = {"isbn10", "author", "title", "year"})
 public class Book {
 
     private String author;
@@ -50,7 +52,7 @@ public class Book {
         this.year = year;
     }
 
-    @XmlAttribute
+//    @XmlAttribute
     public String getIsbn10() {
         return isbn10;
     }
