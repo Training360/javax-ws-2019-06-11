@@ -1,7 +1,11 @@
 package booksrest;
 
+import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
+import org.glassfish.jersey.server.ResourceConfig;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,5 +23,11 @@ public class BookResource {
     @GET
     public List<Book> listBooks() {
         return books;
+    }
+
+    public static void main(String[] args) {
+        var config = new ResourceConfig().packages("booksrest");
+        GrizzlyHttpServerFactory.createHttpServer(URI.create("http://localhost:8082/"),
+                config);
     }
 }
